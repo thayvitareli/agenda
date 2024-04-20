@@ -12,14 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:clickable="true"
-        android:onClick="user_list"
         app:cardCornerRadius="8dp">
 
         <View
             android:layout_width="70dp"
             android:layout_height="match_parent"
-            android:background="@drawable/circle_icon">
-        </View>
+            android:background="@drawable/circle_icon"></View>
 
         <TextView
             android:id="@+id/tvNome"
@@ -30,7 +28,8 @@
             android:paddingStart="10dp"
             android:text="Guilherme Rodrigo"
             android:textAlignment="viewStart"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:focusable="false" />
 
         <ImageView
             android:id="@+id/tvAvatar"

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -22,6 +24,12 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
     private EditText etFone;
     private Button btSalvar;
     private Button btVoltar;
+    private Button btDeletar;
+
+    private TextView textErro;
+
+    private Contato contato;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,20 +46,39 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
 
         btVoltar = findViewById(R.id.btVoltar);
         btVoltar.setOnClickListener(this);
+
+        textErro = findViewById(R.id.textErro);
+
+        Intent intent = getIntent();
+
+        // VERIFICAMOS FOI PASSANDO ALGUMA STRING EXTRA COM ESSAS CHAVES "nome, fone E email" AO CHAMAR A ACTIVITY
+        // E INSTANCIAMOS UM OBJETO COM OS VALORES
+
+
+
+
+
+        // COLOCAMOS OS VALORES DO OBJETO NO EditText
+        etNome.setText(intent.getStringExtra("nome"));
+        etFone.setText(intent.getStringExtra("fone"));
+        etEmail.setText(intent.getStringExtra("email"));
+
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btVoltar) {
+        if (v.getId() == R.id.btVoltar || v.getId() == R.id.ibVoltar) {
             finish();
         } else if (v.getId() == R.id.btSalvar) {
             // salvar ou atualizar o contato
             salvarContato();
-            Toast.makeText(this, "Contato salvo com sucesso",
-                    Toast.LENGTH_SHORT).show();
+
             Intent intent = new Intent();
             setResult(RESULT_OK, intent);
             finish();
+        } else if(v.getId() == R.id.btDeletar){
+
+            deletarContato();
         }
     }
 
@@ -62,6 +89,25 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
         contato.setEmail(etEmail.getText().toString());
         contato.setId(0);
 
-        this.contatoDao.salvarContato(contato);
+
+        if(contato.getNome().isEmpty()){
+            textErro.setText("O preenchimento do nome é obrigatório");
+
+        }else if(contato.getFone().isEmpty()){
+            textErro.setText("O preenchimento do telefone é obrigatório");
+
+        }else{
+
+            this.contatoDao.salvarContato(contato);
+            Toast.makeText(this, "Contato salvo com sucesso",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void deletarContato() {
+
+        contatoDao.apagarContato(contato);
+
     }
 }

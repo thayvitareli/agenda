@@ -10,6 +10,15 @@ public class Contato {
 
     }
 
+    public Contato(long id, String nome, String fone, String email) {
+        this.id = id;
+        this.nome = nome;
+        this.fone = fone;
+        this.email = email;
+
+    }
+
+
     public long getId() {
         return id;
     }

@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".activity.DetalheActivity">
 
+    <Button
+        android:id="@+id/btSalvar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="16dp"
+        android:text="Salvar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFone" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarCadastro"
         android:layout_width="0dp"
@@ -24,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:background="@android:color/transparent"
+        android:onClick="onClick"
         android:src="@drawable/baseline_save_24"
         app:layout_constraintBottom_toBottomOf="@+id/toolbarCadastro"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,6 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:background="@android:color/transparent"
+        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="@+id/toolbarCadastro"
         app:layout_constraintStart_toStartOf="@+id/toolbarCadastro"
         app:layout_constraintTop_toTopOf="parent"
@@ -103,9 +118,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="16dp"
+        android:onClick="onClick"
         android:text="Salvar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etFone" />
 
@@ -113,10 +131,32 @@
         android:id="@+id/btVoltar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
+        android:onClick="onClick"
         android:text="Voltar"
         app:layout_constraintEnd_toEndOf="@+id/btSalvar"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btSalvar"
         app:layout_constraintTop_toBottomOf="@+id/btSalvar" />
+
+    <TextView
+        android:id="@+id/textErro"
+        android:layout_width="241dp"
+        android:layout_height="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="224dp" />
+
+    <Button
+        android:id="@+id/btDeletar"
+        android:layout_width="374dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="268dp"
+        android:onClick="onClick"
+        android:text="Deletar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

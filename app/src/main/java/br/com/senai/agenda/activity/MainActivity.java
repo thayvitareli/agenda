@@ -10,8 +10,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -85,16 +87,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void buscarContatos() {
-//        for (int i = 0; i < 1000; i++) {
-//            Contato contato = new Contato();
-//            contato.setId(i);
-//            contato.setNome("Contato " + i);
-//            contato.setEmail("contato"+ i +"@gmail.com");
-//            contato.setFone("19 9 1234 567" + i);
-//            contatos.add(contato);
-//        }
+//
         this.contatos = contatoDao.buscarTodosContatos();
     }
+
+
 
 
     @Override

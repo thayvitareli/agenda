@@ -51,6 +51,7 @@ public class ContatoDao {
     }
 
     public void salvarContato(Contato contato) {
+
         this.database = helper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
