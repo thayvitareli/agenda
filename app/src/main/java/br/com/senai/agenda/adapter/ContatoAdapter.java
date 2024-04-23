@@ -48,6 +48,7 @@ public class ContatoAdapter
     public void onBindViewHolder(@NonNull ContatoViewHolder holder, int position) {
         Contato contato = contatos.get(position);
         holder.tvNome.setText(contato.getNome());
+        System.out.println(contato.toString());
 
 
         // ADICIONANDO O EVENTO DE CLICK NO CARD
@@ -56,11 +57,12 @@ public class ContatoAdapter
             // CRIA UMA INTENT COM A ACTIVITY "DETALHEACTIVITY"
             Intent telaCadastro = new Intent(context, DetalheActivity.class);
 
+
             // PASSA OS VALORES DO OBJETO "CONTATO" PARA A ACTIVITY "TELA CADASTRO"
             telaCadastro.putExtra("nome", contato.getNome());
             telaCadastro.putExtra("fone", contato.getFone());
             telaCadastro.putExtra("email", contato.getEmail());
-          //  telaCadastro.putExtra("id", contato.getId());
+            telaCadastro.putExtra("id", String.valueOf(contato.getId()));
 
             //INICIA A ACTIVITY TELA CADASTRO
             holder.itemView.getContext().startActivity(telaCadastro);

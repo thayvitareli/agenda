@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,22 +52,28 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
 
         Intent intent = getIntent();
 
-        // VERIFICAMOS FOI PASSANDO ALGUMA STRING EXTRA COM ESSAS CHAVES "nome, fone E email" AO CHAMAR A ACTIVITY
-        // E INSTANCIAMOS UM OBJETO COM OS VALORES
 
+// 1. VERIFICA SE FOI PASSANDO ALGUMA STRING EXTRA COM AS CHAVES: "NOME, FONE, EMAIL E ID" AO CHAMAR A ACTIVITY
+//2.  INSTANCIA UM OBJETO COM ESSES VALORES E INICIALIZA OS EDITTEXT COM OS VALORES
+        if(intent.hasExtra("id")){
 
+            contato = new Contato(
+                    Long.parseLong(intent.getStringExtra("id")),
+                    intent.getStringExtra("nome"),
+                    intent.getStringExtra("fone"),
+                    intent.getStringExtra("email")
+            );
 
-
-
-        // COLOCAMOS OS VALORES DO OBJETO NO EditText
-        etNome.setText(intent.getStringExtra("nome"));
-        etFone.setText(intent.getStringExtra("fone"));
-        etEmail.setText(intent.getStringExtra("email"));
-
+            etNome.setText(contato.getNome());
+            etFone.setText(contato.getFone());
+            etEmail.setText(contato.getEmail());
+        }
     }
 
     @Override
     public void onClick(View v) {
+        // verifica qual botão foi acionado, chamando a função de acordo com a id do botão
+
         if (v.getId() == R.id.btVoltar || v.getId() == R.id.ibVoltar) {
             finish();
         } else if (v.getId() == R.id.btSalvar) {
@@ -78,7 +85,11 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
             finish();
         } else if(v.getId() == R.id.btDeletar){
 
-            deletarContato();
+            deletarContato(contato);
+            Intent intent = new Intent();
+            setResult(RESULT_OK, intent);
+
+            finish();
         }
     }
 
@@ -105,7 +116,7 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    public void deletarContato() {
+    public void deletarContato(Contato contato) {
 
         contatoDao.apagarContato(contato);
 

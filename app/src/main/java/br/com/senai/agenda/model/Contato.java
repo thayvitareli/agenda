@@ -50,4 +50,14 @@ public class Contato {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "Contato{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", fone='" + fone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
