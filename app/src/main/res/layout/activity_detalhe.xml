@@ -4,26 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fundo"
     tools:context=".activity.DetalheActivity">
-
+    <!--
+        Botão duplicado
     <Button
         android:id="@+id/btSalvar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="16dp"
         android:text="Salvar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etFone" />
-
+        -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarCadastro"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:background="?attr/colorPrimary"
+        android:background="@color/items"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,14 +50,16 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/items"
         android:ems="10"
         android:hint="Digite seu nome"
         android:inputType="text"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarCadastro" />
+        app:layout_constraintTop_toBottomOf="@+id/image_avatar" />
 
     <EditText
         android:id="@+id/etEmail"
@@ -64,9 +68,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/items"
         android:ems="10"
         android:hint="Digite seu email"
         android:inputType="textEmailAddress"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNome" />
@@ -78,9 +84,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/items"
         android:ems="10"
         android:hint="Digite seu telefone"
         android:inputType="phone"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
@@ -120,8 +128,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/btn_color"
         android:onClick="onClick"
         android:text="Salvar"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,8 +142,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:backgroundTint="@color/btn_color"
         android:onClick="onClick"
         android:text="Voltar"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/btSalvar"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btSalvar"
@@ -143,20 +155,41 @@
         android:id="@+id/textErro"
         android:layout_width="241dp"
         android:layout_height="27dp"
+        android:backgroundTint="@color/items"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btSalvar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="224dp" />
+        app:layout_constraintTop_toBottomOf="@+id/etFone" />
 
     <Button
         android:id="@+id/btDeletar"
-        android:layout_width="374dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="268dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="@color/btn_color"
         android:onClick="onClick"
         android:text="Deletar"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btVoltar" />
+
+    <!-- add image avatar (23/04) -->
+    <ImageView
+        android:id="@+id/image_avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/account_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCadastro">
+
+    </ImageView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

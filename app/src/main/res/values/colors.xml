@@ -2,5 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="fundo">#CACACA</color>
+    <color name="fundo">#1E1F22</color>
+    <color name="items">#2B2D30</color>
+    <color name="btn_color">#CB197B9A</color>
 </resources>

@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:clickable="true"
+        android:background="@color/items"
         app:cardCornerRadius="8dp">
 
         <View
