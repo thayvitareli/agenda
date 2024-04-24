@@ -15,29 +15,36 @@
         android:background="@color/items"
         app:cardCornerRadius="8dp">
 
-        <View
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/circle_icon"></View>
+
 
         <TextView
             android:id="@+id/tvNome"
             android:layout_width="349dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="66dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="18dp"
             android:paddingStart="10dp"
             android:text="Guilherme Rodrigo"
             android:textAlignment="viewStart"
             android:textSize="24sp"
             android:focusable="false" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cardCornerRadius="100dp"
+            android:elevation="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="4dp"
+            >
+            <ImageView
+                android:id="@+id/tvAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@drawable/icon_image_colored"
+                >
+            </ImageView>
 
-        <ImageView
-            android:id="@+id/tvAvatar"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="11dp"
-            tools:srcCompat="@tools:sample/avatars" />
+        </androidx.cardview.widget.CardView>
 
     </androidx.cardview.widget.CardView>
 
