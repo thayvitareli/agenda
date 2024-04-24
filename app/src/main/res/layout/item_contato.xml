@@ -16,7 +16,6 @@
         app:cardCornerRadius="8dp">
 
 
-
         <TextView
             android:id="@+id/tvNome"
             android:layout_width="349dp"
