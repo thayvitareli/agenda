@@ -91,6 +91,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.contatos = contatoDao.buscarTodosContatos();
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        buscarContatos();
+        contatoAdapter = new ContatoAdapter(contatos, this);
+        recyclerView.setAdapter(contatoAdapter);
+
+
+    }
 
 
 

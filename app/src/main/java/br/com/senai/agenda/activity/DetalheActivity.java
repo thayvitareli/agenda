@@ -25,7 +25,6 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
     private EditText etFone;
     private Button btSalvar;
     private Button btVoltar;
-    private Button btDeletar;
 
     private TextView textErro;
 
@@ -38,6 +37,7 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_detalhe);
 
         contatoDao = new ContatoDao(this);
+
         etNome = findViewById(R.id.etNome);
         etEmail = findViewById(R.id.etEmail);
         etFone = findViewById(R.id.etFone);
@@ -85,10 +85,10 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
             finish();
         } else if(v.getId() == R.id.btDeletar){
 
+            //deleta o contato
             deletarContato(contato);
-            Intent intent = new Intent();
-            setResult(RESULT_OK, intent);
 
+            // retorna para o main activity
             finish();
         }
     }
@@ -100,6 +100,9 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
         contato.setEmail(etEmail.getText().toString());
         contato.setId(0);
 
+        if(!String.valueOf(this.contato.getId()).isEmpty()){
+            contato.setId(this.contato.getId());
+        }
 
         if(contato.getNome().isEmpty()){
             textErro.setText("O preenchimento do nome é obrigatório");
@@ -119,6 +122,8 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
     public void deletarContato(Contato contato) {
 
         contatoDao.apagarContato(contato);
+        Toast.makeText(this, "Contato excluído com sucesso",
+                Toast.LENGTH_SHORT).show();
 
     }
 }
