@@ -53,16 +53,18 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = getIntent();
 
 
-// 1. VERIFICA SE FOI PASSANDO ALGUMA STRING EXTRA COM AS CHAVES: "NOME, FONE, EMAIL E ID" AO CHAMAR A ACTIVITY
-//2.  INSTANCIA UM OBJETO COM ESSES VALORES E INICIALIZA OS EDITTEXT COM OS VALORES
-        if(intent.hasExtra("id")){
+     // INSTANCIA o objeto declarado
+        this.contato = new Contato();
 
-            contato = new Contato(
-                    Long.parseLong(intent.getStringExtra("id")),
-                    intent.getStringExtra("nome"),
-                    intent.getStringExtra("fone"),
-                    intent.getStringExtra("email")
-            );
+
+        /* VERIFICA SE FOI PASSANDO ALGUMA STRING EXTRA COM AS CHAVES: "NOME, FONE, EMAIL E ID"
+         AO CHAMAR A ACTIVITY E SETA O OBJETO COM ESSES VALORES, JUNTAMENTE COM OS INPUTS DA TELA*/
+
+        if(intent.hasExtra("id")){
+            contato.setId(Long.parseLong(intent.getStringExtra("id")));
+            contato.setNome(intent.getStringExtra("nome"));
+            contato.setFone(intent.getStringExtra("fone"));
+            contato.setEmail(intent.getStringExtra("email"));
 
             etNome.setText(contato.getNome());
             etFone.setText(contato.getFone());
@@ -100,7 +102,7 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
         contato.setEmail(etEmail.getText().toString());
         contato.setId(0);
 
-        if(!String.valueOf(this.contato.getId()).isEmpty()){
+        if(String.valueOf(this.contato.getId()) != null){
             contato.setId(this.contato.getId());
         }
 
