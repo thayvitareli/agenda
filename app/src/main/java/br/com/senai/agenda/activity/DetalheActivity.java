@@ -26,6 +26,8 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
     private Button btSalvar;
     private Button btVoltar;
 
+    private ImageButton ibSalvar;
+
     private TextView textErro;
 
     private Contato contato;
@@ -47,6 +49,9 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
 
         btVoltar = findViewById(R.id.btVoltar);
         btVoltar.setOnClickListener(this);
+
+        ibSalvar = findViewById(R.id.ibSalvar);
+        ibSalvar.setOnClickListener(this);
 
         textErro = findViewById(R.id.textErro);
 
@@ -78,7 +83,7 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
 
         if (v.getId() == R.id.btVoltar || v.getId() == R.id.ibVoltar) {
             finish();
-        } else if (v.getId() == R.id.btSalvar) {
+        } else if (v.getId() == R.id.btSalvar || v.getId() == R.id.ibSalvar) {
             // salvar ou atualizar o contato
             salvarContato();
 
