@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/fundo"
     android:onClick="onClick"
-    tools:context=".activity.DetalheActivity">
+    tools:context=".activity.DetalheActivity"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarCadastro"
