@@ -2,8 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Agenda" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- <item name="colorPrimary">@color/primary</item> -->
     </style>
 
-    <style name="Theme.Agenda" parent="Base.Theme.Agenda" />
+    <style name="Theme.Agenda" parent="Base.Theme.Agenda" >
+        <item name="colorPrimary">@color/primary</item>
+    </style>
 </resources>
