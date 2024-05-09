@@ -1,7 +1,9 @@
 package br.com.senai.agenda.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -92,11 +94,9 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
             finish();
         } else if(v.getId() == R.id.btDeletar){
 
-            //deleta o contato
-            deletarContato(contato);
+            //exibir alerta de confirmação antes de deletar
+            exibirAlertaParaDeletar();
 
-            // retorna para o main activity
-            finish();
         }
     }
 
@@ -132,5 +132,29 @@ public class DetalheActivity extends AppCompatActivity implements View.OnClickLi
         Toast.makeText(this, "Contato excluído com sucesso",
                 Toast.LENGTH_SHORT).show();
 
+    }
+
+    public void exibirAlertaParaDeletar(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Você tem certeza que deseja deletar este contato?");
+
+        //evento a ser executado caso seja clicado no botão "Sim"
+        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // deletar o contato
+                deletarContato(contato);
+
+                // retorna para o main activity
+                finish();
+            }
+        });
+
+        //nenhum evento será executado caso o botão clicado seja "cancelar"
+        builder.setNegativeButton("Cancelar", null);
+
+        // Mostra o AlertDialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
