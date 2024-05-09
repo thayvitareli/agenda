@@ -12,11 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<Contato> contatos = new ArrayList<>();
     private ContatoAdapter contatoAdapter;
     private ContatoDao contatoDao;
+    private SharedPreferences sharedPreferences;
+
+
 
     ActivityResultLauncher<Intent> startActivityIntent = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -42,12 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     contatos.clear();
                     contatos.addAll(contatoDao.buscarTodosContatos());
                     contatoAdapter.notifyDataSetChanged();
-
-//                    if (o.getResultCode() == RESULT_OK) {
-//                        contatos.clear();
-//                        contatos.addAll(contatoDao.buscarTodosContatos());
-//                        contatoAdapter.notifyDataSetChanged();
-//                    }
+                    
                 }
             }
     );
@@ -68,6 +68,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Toolbar toolbar = findViewById(R.id.toolbarHome);
         setSupportActionBar(toolbar);
+
+        sharedPreferences = getSharedPreferences("loginPrefs", Context.MODE_PRIVATE);
+
+
+
     }
 
     @Override
@@ -78,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.btn_logout){
+                logout();
+        }
         if (item.getItemId() == R.id.navegar_cadastro) {
             // navegar para tela de cadastro
             Intent telaCadastro = new Intent(this, DetalheActivity.class);
@@ -101,6 +109,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+    
+    public void logout(){
+
+            // Remove as credenciais das SharedPreferences
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.remove("email");
+            editor.remove("senha");
+            editor.apply();
+
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+
+    }
+
 
     @Override
     public void onClick(View v) {
