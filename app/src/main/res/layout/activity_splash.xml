@@ -7,19 +7,21 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical"
+    android:background="@color/fundo"
     tools:context=".activity.SplashActivity">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="300dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/contatos" />
+        android:src="@drawable/icon_logo_agenda" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="35dp"
         android:gravity="center"
+        android:textColor="@color/white"
         android:text="Meus Contatos" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

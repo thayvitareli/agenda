@@ -114,25 +114,36 @@
 
     <Button
         android:id="@+id/btSalvar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="@color/btn_color"
         android:onClick="onClick"
         android:text="Salvar"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etFone" />
+
+    <Button
+        android:id="@+id/btDeletar"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/btn_color"
+        android:onClick="onClick"
+        android:text="Deletar"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btVoltar" />
 
     <Button
         android:id="@+id/btVoltar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/btn_color"
         android:onClick="onClick"
         android:text="Voltar"
@@ -152,21 +163,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etFone" />
-
-    <Button
-        android:id="@+id/btDeletar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:backgroundTint="@color/btn_color"
-        android:onClick="onClick"
-        android:text="Deletar"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btVoltar" />
 
     <!-- add image avatar (23/04) -->
     <ImageView
